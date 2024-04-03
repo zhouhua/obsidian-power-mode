@@ -1,7 +1,7 @@
 {
-	"name": "markdown-media-card",
-	"version": "1.2.0",
-	"description": "This is a plugin for Obsidian that allows you to insert media information cards in Markdown, such as books, music, movies, etc.",
+	"name": "obsidian-power-mode",
+	"version": "1.0.0",
+	"description": "Active Power Mode!!!!",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
@@ -12,29 +12,31 @@
 	"keywords": [
 		"obsidian",
 		"plugin",
-		"markdown"
+		"power mode",
+		"combo"
 	],
 	"author": "Zhou Hua",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/zhouhua/obsidian-markdown-media-card"
+		"url": "https://github.com/zhouhua/obsidian-power-mode"
 	},
 	"bugs": {
-		"url": "https://github.com/zhouhua/obsidian-markdown-media-card/issues"
+		"url": "https://github.com/zhouhua/obsidian-power-mode/issues"
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"@types/node": "^20.11.28",
-		"@typescript-eslint/eslint-plugin": "7.2.0",
-		"@typescript-eslint/parser": "7.2.0",
+		"@types/lodash": "^4.17.0",
+		"@types/node": "^20.12.3",
+		"@typescript-eslint/eslint-plugin": "7.5.0",
+		"@typescript-eslint/parser": "7.5.0",
 		"builtin-modules": "3.3.0",
 		"esbuild": "0.20.2",
 		"obsidian": "latest",
 		"tslib": "2.6.2",
-		"typescript": "5.4.2"
+		"typescript": "5.4.3"
 	},
 	"dependencies": {
-		"@zhouhua-dev/remark-media-card": "^1.1.6",
+		"lodash": "^4.17.21",
 		"typesafe-i18n": "^5.26.2"
 	}
 }

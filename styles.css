@@ -1,12 +1,24 @@
-.markdown-media-card-render .error-msg {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	color: var(--color-orange);
+.power-mode-combo {
+  position: absolute;
+  display: flex;
+  right: 5%;
+  top: 20px;
+  font-weight: 900;
+  pointer-events: none;
+  z-index: 1;
+  font-size: 40px;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: monospace;
 }
-.markdown-media-card-render .copy {
-	opacity: 0;
+.power-mode-combo-progress {
+  height: 12px;
+  background-color: white;
+  border: solid 1px white;
 }
-.markdown-media-card-render .language-yaml {
-	padding-left: 2em;
+.power-mode-combo-text {
+  color: white;
+}
+.power-mode-combo-exclamation {
+  font-size: 24px;
 }

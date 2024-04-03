@@ -1,9 +1,9 @@
 {
-	"id": "markdown-media-card",
-	"name": "Markdown Media Card",
-	"version": "1.2.0",
+	"id": "markdown-power-mode",
+	"name": "POWER MODE",
+	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Insert media information cards in Markdown, such as books, music, movies, etc.",
+	"description": "Active POWER MODE!!!!",
 	"author": "Zhou Hua",
 	"authorUrl": "https://zhouhua.site",
 	"isDesktopOnly": false

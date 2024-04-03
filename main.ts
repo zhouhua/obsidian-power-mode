@@ -1,80 +1,42 @@
-import {
-	Plugin,
-	parseYaml,
-	MarkdownRenderer,
-	MarkdownRenderChild,
-	sanitizeHTMLToDom,
-} from "obsidian";
-import { template } from "@zhouhua-dev/remark-media-card";
+import { Plugin } from "obsidian";
+import { shakeScreen } from "./src/screen-shaker";
 import { loadAllLocales } from "./i18n/i18n-util.sync";
 import { i18n } from "./i18n/i18n-util";
 import { Locales } from "./i18n/i18n-types";
+import { ISetting, defaultSetting } from "src/setting";
+import { combo } from "src/combo";
 
 loadAllLocales();
 
 let locale: Locales = "en";
 try {
-	// @ts-ignore
-	locale = /^zh/.test(global?.i18next?.language || "") ? "zh" : "en";
+  // @ts-ignore
+  locale = /^zh/.test(global?.i18next?.language || "") ? "zh" : "en";
 } catch (e) {
-	/* empty */
+  /* empty */
 }
 
 const L = i18n()[locale];
 
-function appendErrorMsg(el: HTMLElement) {
-	const container = el.querySelector("pre.language-yaml");
-	if (container) {
-		container.createEl("div", {
-			cls: "error-msg",
-			text: L.invalid(),
-		});
-	}
-}
+export default class PowerModePlugin extends Plugin {
+  settings: ISetting;
+  async onload() {
+    await this.loadSettings();
+    this.app.workspace.on("editor-change", (editor) => {
+      // @ts-ignore
+      const el: HTMLElement = editor.containerEl;
+      shakeScreen(el, this.settings);
+      combo(el, this.settings);
+    });
+  }
 
-async function calcImageUrl(path: string, sourcePath: string) {
-	try {
-		const div = createDiv();
-		await MarkdownRenderer.render(
-			this.app,
-			`![](${path})`,
-			div,
-			sourcePath,
-			new MarkdownRenderChild(div)
-		);
-		return div.find("img").getAttribute("src");
-	} catch (e) {
-		return path;
-	}
-}
+  onunload() {}
 
-export default class MediaCardPlugin extends Plugin {
-	async onload() {
-		this.registerMarkdownCodeBlockProcessor(
-			"media-card",
-			async (source, el, ctx) => {
-				el.addClass("markdown-media-card-render");
-				try {
-					const data = parseYaml(source);
-					if (data.cover) {
-						data.cover = await calcImageUrl(data.cover, ctx.sourcePath);
-					}
-					const html = template(data);
-					const fragment = sanitizeHTMLToDom(html);
-					el.appendChild(fragment);
-				} catch (e) {
-					MarkdownRenderer.render(
-						this.app,
-						["```yaml", source, "```"].join("\n"),
-						el,
-						ctx.sourcePath,
-						new MarkdownRenderChild(el)
-					);
-					appendErrorMsg(el);
-				}
-			}
-		);
-	}
+  async loadSettings() {
+    this.settings = { ...defaultSetting, ...(await this.loadData()) };
+  }
 
-	onunload() {}
+  async saveSettings() {
+    await this.saveData(this.settings);
+  }
 }
