@@ -1,4 +1,4 @@
-# Obsidian Markdown Media Card Plugin
+# Obsidian POWER MODE
 
 ![GitHub Release](https://img.shields.io/github/v/release/zhouhua/obsidian-power-mode?include_prereleases&style=flat) ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/zhouhua/obsidian-power-mode/total?style=flat)
 

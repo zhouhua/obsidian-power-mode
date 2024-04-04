@@ -10,7 +10,6 @@ let progressEl: HTMLElement;
 
 const EXCLAMATIONS = [
   "Super!",
-  "Radical!",
   "Fantastic!",
   "Great!",
   "OMG",
@@ -18,7 +17,6 @@ const EXCLAMATIONS = [
   ":O",
   "Nice!",
   "Splendid!",
-  "Wild!",
   "Grand!",
   "Impressive!",
   "Stupendous!",
@@ -39,12 +37,37 @@ function init(el: HTMLElement) {
     });
   }
 }
+let flickerTimer: number;
+function flickAnimate(el: HTMLElement) {
+  el.animate(
+    [
+      { opacity: 1, filter: "invert(0)" },
+      { opacity: 0, filter: "invert(0.6)" },
+      { opacity: 1, filter: "invert(0)" },
+    ],
+    {
+      duration: 30,
+    }
+  );
+}
+function flicker() {
+  flickAnimate(progressEl);
+  if (Math.random() < 0.5) {
+    flickAnimate(textEl);
+  }
+
+  flickerTimer = setTimeout(flicker, random(100, 800)) as unknown as number;
+}
+function stopFlicker() {
+  clearTimeout(flickerTimer);
+}
 
 function reset() {
   if (timer) {
     clearTimeout(timer);
     timer = undefined;
   }
+  stopFlicker();
   count = 0;
   comboEl.style.display = "none";
 }
@@ -72,8 +95,11 @@ function exclaim(color: string) {
 
 function active(setting: ISetting) {
   count++;
+  if (count === 1) {
+    flicker();
+  }
   comboEl.style.display = "flex";
-  const color = `hsl(${125 - count * 1.2}, 100%, 70%)`;
+  const color = `hsl(${200 - count * 1.2}, 100%, 70%)`;
   textEl.style.textShadow = `0 0 15px ${color}, 0 1px ${color}, 1px 0 ${color}, 0 -1px ${color}, -1px 0 ${color}`;
   textEl.textContent = `${count}×`;
   progressEl.style.boxShadow = `0 0 15px ${color}`;
