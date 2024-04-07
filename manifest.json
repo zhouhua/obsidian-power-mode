@@ -1,10 +1,10 @@
 {
-  "id": "power-mode",
-  "name": "POWER MODE",
-  "version": "1.0.0",
-  "minAppVersion": "1.5.3",
-  "description": "Active POWER MODE!!!!",
-  "author": "Zhou Hua",
-  "authorUrl": "https://zhouhua.site",
-  "isDesktopOnly": false
+	"id": "power-mode",
+	"name": "POWER MODE",
+	"version": "1.0.1",
+	"minAppVersion": "1.5.3",
+	"description": "Active POWER MODE!!!!",
+	"author": "Zhou Hua",
+	"authorUrl": "https://zhouhua.site",
+	"isDesktopOnly": false
 }
