@@ -42,7 +42,7 @@ function flickAnimate(el: HTMLElement) {
   el.animate(
     [
       { opacity: 1, filter: "invert(0)" },
-      { opacity: 0, filter: "invert(0.6)" },
+      { opacity: 0.3, filter: "invert(0.6)" },
       { opacity: 1, filter: "invert(0)" },
     ],
     {
