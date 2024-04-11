@@ -27,6 +27,8 @@
 	"devDependencies": {
 		"@types/lodash": "^4.17.0",
 		"@types/node": "^20.12.3",
+		"@types/react": "^18.2.74",
+		"@types/react-dom": "^18.2.24",
 		"@typescript-eslint/eslint-plugin": "7.5.0",
 		"@typescript-eslint/parser": "7.5.0",
 		"builtin-modules": "3.3.0",
@@ -37,6 +39,8 @@
 	},
 	"dependencies": {
 		"lodash": "^4.17.21",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"typesafe-i18n": "^5.26.2"
 	}
 }

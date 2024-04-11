@@ -1,4 +1,3 @@
-import { ISetting } from "./setting";
 import sample from "lodash/sample";
 import random from "lodash/random";
 

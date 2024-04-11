@@ -1,4 +1,3 @@
-import { IExplosion } from "src/setting";
 import L from "../../L";
 const type = L.particle();
 

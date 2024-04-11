@@ -1,6 +1,5 @@
 // refer https://github.com/hoovercj/vscode-power-mode/issues/1#issuecomment-412615727
 
-import { IExplosion } from "src/setting";
 const type = "Emoji";
 
 const config: IExplosion = {

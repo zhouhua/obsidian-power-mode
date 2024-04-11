@@ -1,5 +1,4 @@
 import random from "lodash/random";
-import { ISetting } from "./setting";
 
 let shakeTimer: number | undefined;
 

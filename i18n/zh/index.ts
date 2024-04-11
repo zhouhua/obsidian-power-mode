@@ -14,9 +14,23 @@ const zh = {
   settings: {
     screenShaker: {
       enable: "屏幕抖动",
+      intensity: {
+        title: "抖动强度",
+        description: "",
+      },
+      recoverTime: {
+        title: "抖动时间",
+        description: "抖动后恢复原状的时间（毫秒）",
+      },
     },
     combo: {
       enable: "Combo!",
+      time: {
+        title: "连击时间",
+        descrition:
+          "两次按键之间的时间间隔小于连击时间，连击数增加1；大于连击时间，连击数重置为0。单位：秒",
+      },
+      showExclamation: "显示鼓励",
     },
     cursorExplosion: {
       enable: "光标爆炸",

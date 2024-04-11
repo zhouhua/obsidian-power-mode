@@ -1,4 +1,3 @@
-import { IExplosion } from "src/setting";
 import particle from "./particle";
 import flame from "./flame";
 import rift from "./rift";

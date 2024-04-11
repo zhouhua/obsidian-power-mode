@@ -1,6 +1,5 @@
 // refer https://github.com/hoovercj/vscode-power-mode/issues/1#issuecomment-523485171
 
-import { IExplosion } from "src/setting";
 import L from "../../L";
 const type = L.pikachu();
 

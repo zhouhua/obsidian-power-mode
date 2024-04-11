@@ -1,5 +1,4 @@
 import { Editor } from "obsidian";
-import { ISetting } from "./setting";
 import { random } from "lodash";
 import { isUrl } from "./utils";
 

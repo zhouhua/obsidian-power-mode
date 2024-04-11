@@ -1,33 +1,3 @@
-export interface IExplosion {
-  maxExplosions: number;
-  size: number;
-  frequency: number;
-  explosionOrder: "random" | "sequential" | number;
-  gifMode: "continue" | "restart";
-  duration: number;
-  offset: number;
-  backgroundMode: "mask" | "image";
-  imageList: string[];
-  customStyle?: Partial<CSSStyleDeclaration>;
-}
-
-export interface ISetting {
-  shakeScreen: {
-    enable: boolean;
-    intensity: number;
-    recoverTime: number;
-  };
-  combo: {
-    enable: boolean;
-    timeout: number;
-    showExclamation: boolean;
-  };
-  explosion: {
-    enable: boolean;
-  } & IExplosion;
-  explosionPreset: number;
-}
-
 export const defaultSetting: ISetting = {
   shakeScreen: {
     enable: true,
