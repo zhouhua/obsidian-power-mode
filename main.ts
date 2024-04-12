@@ -13,13 +13,15 @@ export default class PowerModePlugin extends Plugin {
   settings: ISetting;
   async onload() {
     await this.loadSettings();
-    this.app.workspace.on("editor-change", (editor) => {
-      // @ts-ignore
-      const el: HTMLElement = editor.containerEl;
-      shakeScreen(el, this.settings);
-      combo(el, this.settings);
-      explosion(editor, this.settings);
-    });
+    this.registerEvent(
+      this.app.workspace.on("editor-change", (editor) => {
+        // @ts-ignore
+        const el: HTMLElement = editor.containerEl;
+        shakeScreen(el, this.settings);
+        combo(el, this.settings);
+        explosion(editor, this.settings);
+      })
+    );
 
     this.addSettingTab(new PowerModeSetting(this.app, this));
   }

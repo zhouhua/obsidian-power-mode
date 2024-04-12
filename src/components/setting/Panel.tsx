@@ -91,9 +91,8 @@ const Panel: FC<{
 
   return (
     <>
-      <h3>POWER MODE!</h3>
       <p>
-        Github:{" "}
+        Github:
         <a
           href="https://github.com/zhouhua/obsidian-power-mode"
           target="_blank"
