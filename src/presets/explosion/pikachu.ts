@@ -1,4 +1,5 @@
 // refer https://github.com/hoovercj/vscode-power-mode/issues/1#issuecomment-523485171
+// permission granted
 
 import L from "../../L";
 const type = L.pikachu();

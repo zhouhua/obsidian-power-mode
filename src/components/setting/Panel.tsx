@@ -49,14 +49,6 @@ const formSchema1: FormSchema<ISetting> = [
     type: "boolean",
   },
 ];
-const formSchema2: FormSchema<ISetting> = [
-  {
-    label: L.settings.cursorExplosion.effect(),
-    path: "explosion.effect",
-    type: "boolean",
-    when: { path: "explosion.enable", flag: true },
-  },
-];
 
 const Panel: FC<{
   initialSetting: ISetting;
@@ -106,7 +98,7 @@ const Panel: FC<{
         setFormData={update}
         app={app}
       />
-      <div className="setting-item" style={{ padding: "10px 0" }}>
+      {formData.explosion.enable && <div className="setting-item" style={{ padding: "10px 0" }}>
         <div className="setting-item-info">
           <div className="setting-item-name">
             {L.settings.cursorExplosion.effect()}
@@ -125,13 +117,7 @@ const Panel: FC<{
             ))}
           </select>
         </div>
-      </div>
-      <FormItems
-        formSchema={formSchema2}
-        formData={formData}
-        setFormData={update}
-        app={app}
-      />
+      </div>}
     </>
   );
 };

@@ -1,3 +1,5 @@
+// copy from https://github.com/hoovercj/vscode-power-mode/blob/master/src/config/magic.ts
+
 import L from "../../L";
 const type = L.magic();
 

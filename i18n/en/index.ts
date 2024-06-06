@@ -1,3 +1,4 @@
+import spark from "src/presets/explosion/spark";
 import type { BaseTranslation } from "../i18n-types";
 
 const en = {
@@ -6,11 +7,12 @@ const en = {
   rift: "Rift",
   magic: "Magic",
   firework: "Firework",
-  butterfly: "Butterfly",
   pikachu: "Pikachu",
-  nyan: "Nyan Panda",
   lightning: "Lightning",
-  sparkle: "Sparkle",
+  shapes: "Shapes",
+  coin: "Coin",
+  confetti: "Confetti",
+  spark: "Spark",
   settings: {
     screenShaker: {
       enable: "Screen shaker",

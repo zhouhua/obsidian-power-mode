@@ -3,12 +3,12 @@ import flame from "./flame";
 import rift from "./rift";
 import magic from "./magic";
 import firework from "./firework";
-import emoji from "./emoji";
-import butterfly from "./butterfly";
 import pikachu from "./pikachu";
-import nyan from "./nyan";
-import sparkle from "./sparkle";
 import lightning from "./lightning";
+import shapes from "./shapes";
+import coin from "./coin";
+import confetti from "./confetti";
+import spark from "./spark";
 
 // particle effect
 const list: { type: string; config: IExplosion }[] = [
@@ -17,12 +17,12 @@ const list: { type: string; config: IExplosion }[] = [
   rift,
   magic,
   firework,
-  emoji,
-  butterfly,
   pikachu,
-  nyan,
-  sparkle,
   lightning,
+  shapes,
+  coin,
+  confetti,
+  spark,
 ];
 
 export default list;

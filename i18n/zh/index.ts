@@ -6,11 +6,12 @@ const zh = {
   rift: "裂缝",
   magic: "魔法",
   firework: "烟花",
-  butterfly: "蝴蝶",
   pikachu: "皮卡丘",
-  nyan: "彩虹熊猫",
   lightning: "闪电",
-  sparkle: "闪烁",
+  shapes: "形状",
+  coin: "金币",
+  confetti: "彩屑",
+  spark: "电光",
   settings: {
     screenShaker: {
       enable: "屏幕抖动",

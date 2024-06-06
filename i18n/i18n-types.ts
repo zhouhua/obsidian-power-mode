@@ -35,25 +35,29 @@ type RootTranslation = {
 	 */
 	firework: string
 	/**
-	 * B​u​t​t​e​r​f​l​y
-	 */
-	butterfly: string
-	/**
 	 * P​i​k​a​c​h​u
 	 */
 	pikachu: string
-	/**
-	 * N​y​a​n​ ​P​a​n​d​a
-	 */
-	nyan: string
 	/**
 	 * L​i​g​h​t​n​i​n​g
 	 */
 	lightning: string
 	/**
-	 * S​p​a​r​k​l​e
+	 * S​h​a​p​e​s
 	 */
-	sparkle: string
+	shapes: string
+	/**
+	 * C​o​i​n
+	 */
+	coin: string
+	/**
+	 * C​o​n​f​e​t​t​i
+	 */
+	confetti: string
+	/**
+	 * S​p​a​r​k
+	 */
+	spark: string
 	settings: {
 		screenShaker: {
 			/**
@@ -136,25 +140,29 @@ export type TranslationFunctions = {
 	 */
 	firework: () => LocalizedString
 	/**
-	 * Butterfly
-	 */
-	butterfly: () => LocalizedString
-	/**
 	 * Pikachu
 	 */
 	pikachu: () => LocalizedString
-	/**
-	 * Nyan Panda
-	 */
-	nyan: () => LocalizedString
 	/**
 	 * Lightning
 	 */
 	lightning: () => LocalizedString
 	/**
-	 * Sparkle
+	 * Shapes
 	 */
-	sparkle: () => LocalizedString
+	shapes: () => LocalizedString
+	/**
+	 * Coin
+	 */
+	coin: () => LocalizedString
+	/**
+	 * Confetti
+	 */
+	confetti: () => LocalizedString
+	/**
+	 * Spark
+	 */
+	spark: () => LocalizedString
 	settings: {
 		screenShaker: {
 			/**
