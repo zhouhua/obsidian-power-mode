@@ -16,6 +16,7 @@ declare interface ISetting {
     enable: boolean;
     intensity: number;
     recoverTime: number;
+    shakeWindow?: boolean;
   };
   combo: {
     enable: boolean;

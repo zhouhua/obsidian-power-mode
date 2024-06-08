@@ -23,6 +23,10 @@ const zh = {
         title: "抖动时间",
         description: "抖动后恢复原状的时间（毫秒）",
       },
+      shakeWindow: {
+        title: "是否抖动整个窗口",
+        description: "默认只抖动当前的编辑器，如果选中，则会抖动整个容器",
+      },
     },
     combo: {
       enable: "Combo!",

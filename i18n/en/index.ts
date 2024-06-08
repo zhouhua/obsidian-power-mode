@@ -1,4 +1,3 @@
-import spark from "src/presets/explosion/spark";
 import type { BaseTranslation } from "../i18n-types";
 
 const en = {
@@ -24,6 +23,11 @@ const en = {
         title: "Shake Time",
         description:
           "The time(milliseconds) it takes for the shake effect to recover.",
+      },
+      shakeWindow: {
+        title: "Whether to shake the entire window",
+        description:
+          "By default, only the current editor will shake. If checked, the entire container will shake.",
       },
     },
     combo: {

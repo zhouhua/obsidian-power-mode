@@ -17,6 +17,7 @@ export default class PowerModePlugin extends Plugin {
       this.app.workspace.on("editor-change", (editor) => {
         // @ts-ignore
         const el: HTMLElement = editor.containerEl;
+        el.style.transition = "transform 0.05s ease-in-out";
         shakeScreen(el, this.settings);
         combo(el, this.settings);
         explosion(editor, this.settings);

@@ -26,6 +26,13 @@ const formSchema1: FormSchema<ISetting> = [
     when: { path: "shakeScreen.enable", flag: true },
   },
   {
+    label: L.settings.screenShaker.shakeWindow.title(),
+    desc: L.settings.screenShaker.shakeWindow.description(),
+    path: "shakeScreen.shakeWindow",
+    type: "boolean",
+    when: { path: "shakeScreen.enable", flag: true },
+  },
+  {
     label: L.settings.combo.enable(),
     path: "combo.enable",
     type: "boolean",
