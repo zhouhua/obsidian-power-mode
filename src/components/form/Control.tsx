@@ -42,7 +42,7 @@ const Control: FC<{
           className={`checkbox-container${value ? " is-enabled" : ""}`}
           onClick={() => onChange(!get(setting, fieldSchema.path))}
         >
-          <input type="checkbox" checked={value} onChange={() => {}} />
+          <input type="checkbox" checked={value} onChange={() => { }} />
         </div>
       );
     }

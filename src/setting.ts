@@ -3,6 +3,7 @@ export const defaultSetting: ISetting = {
     enable: true,
     intensity: 5,
     recoverTime: 800,
+    shakeWindow: false,
   },
   combo: {
     enable: true,

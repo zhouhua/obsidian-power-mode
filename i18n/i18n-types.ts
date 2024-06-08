@@ -84,6 +84,16 @@ type RootTranslation = {
 				 */
 				description: string
 			}
+			shakeWindow: {
+				/**
+				 * W​h​e​t​h​e​r​ ​t​o​ ​s​h​a​k​e​ ​t​h​e​ ​e​n​t​i​r​e​ ​w​i​n​d​o​w
+				 */
+				title: string
+				/**
+				 * B​y​ ​d​e​f​a​u​l​t​,​ ​o​n​l​y​ ​t​h​e​ ​c​u​r​r​e​n​t​ ​e​d​i​t​o​r​ ​w​i​l​l​ ​s​h​a​k​e​.​ ​I​f​ ​c​h​e​c​k​e​d​,​ ​t​h​e​ ​e​n​t​i​r​e​ ​c​o​n​t​a​i​n​e​r​ ​w​i​l​l​ ​s​h​a​k​e​.
+				 */
+				description: string
+			}
 		}
 		combo: {
 			/**
@@ -186,6 +196,16 @@ export type TranslationFunctions = {
 				title: () => LocalizedString
 				/**
 				 * The time(milliseconds) it takes for the shake effect to recover.
+				 */
+				description: () => LocalizedString
+			}
+			shakeWindow: {
+				/**
+				 * Whether to shake the entire window
+				 */
+				title: () => LocalizedString
+				/**
+				 * By default, only the current editor will shake. If checked, the entire container will shake.
 				 */
 				description: () => LocalizedString
 			}
