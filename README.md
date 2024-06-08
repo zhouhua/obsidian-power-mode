@@ -26,20 +26,19 @@ Power Mode is not a new concept; it has been implemented numerous times in [vari
 
 ### presets
 
-| preset        | screenshot                              |
-| ------------- | --------------------------------------- |
-| particle      | ![particle](./screenshots/particle.gif) |
-| flame         | ![flame](./screenshots/flame.gif)       |
-| rift          | ![rift](./screenshots/rift.gif)         |
-| magic         | ![rift](./screenshots/magic.gif)        |
-| firework      | ![rift](./screenshots/firework.gif)     |
-| emoji         | ![rift](./screenshots/emoji.gif)        |
-| butterfly     | ![rift](./screenshots/butterfly.gif)    |
-| pikachu       | ![rift](./screenshots/pikachu.gif)      |
-| rainbow panda | ![rift](./screenshots/nyan.gif)         |
-| sparkle       | ![rift](./screenshots/sparkle.gif)      |
-| rift          | ![rift](./screenshots/rift.gif)         |
-| lightning     | ![rift](./screenshots/lightning.gif)    |
+| preset    | screenshot                                |
+| --------- | ----------------------------------------- |
+| particle  | ![particle](./screenshots/particle.gif)   |
+| flame     | ![flame](./screenshots/flame.gif)         |
+| rift      | ![rift](./screenshots/rift.gif)           |
+| magic     | ![magic](./screenshots/magic.gif)         |
+| firework  | ![firework](./screenshots/firework.gif)   |
+| pikachu   | ![pikachu](./screenshots/pikachu.gif)     |
+| lightning | ![lightning](./screenshots/lightning.gif) |
+| shapes    | ![shapes](./screenshots/shapes.gif)       |
+| coin      | ![coin](./screenshots/coin.gif)           |
+| confetti  | ![confetti](./screenshots/confetti.gif)   |
+| spark     | ![spark](./screenshots/spark.gif)         |
 
 ## Installation
 
