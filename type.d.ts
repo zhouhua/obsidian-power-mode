@@ -22,6 +22,7 @@ declare interface ISetting {
     enable: boolean;
     timeout: number;
     showExclamation: boolean;
+    precisionInput: boolean;
   };
   explosion: {
     enable: boolean;

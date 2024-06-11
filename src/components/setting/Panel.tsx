@@ -51,6 +51,13 @@ const formSchema1: FormSchema<ISetting> = [
     when: { path: "combo.enable", flag: true },
   },
   {
+    label: L.settings.combo.precisionInput.title(),
+    desc: L.settings.combo.precisionInput.descrition(),
+    path: "combo.precisionInput",
+    type: "boolean",
+    when: { path: "combo.enable", flag: true },
+  },
+  {
     label: L.settings.cursorExplosion.enable(),
     path: "explosion.enable",
     type: "boolean",

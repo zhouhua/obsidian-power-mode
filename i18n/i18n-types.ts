@@ -114,6 +114,16 @@ type RootTranslation = {
 			 * S​h​o​w​ ​e​x​c​l​a​m​a​t​i​o​n
 			 */
 			showExclamation: string
+			precisionInput: {
+				/**
+				 * P​r​e​c​i​s​i​o​n​ ​i​n​p​u​t​ ​m​o​d​e
+				 */
+				title: string
+				/**
+				 * O​n​l​y​ ​c​o​r​r​e​c​t​ ​i​n​p​u​t​s​ ​w​i​l​l​ ​c​o​u​n​t​ ​t​o​w​a​r​d​s​ ​t​h​e​ ​c​o​m​b​o​,​ ​i​g​n​o​r​i​n​g​ ​a​n​y​ ​c​h​a​r​a​c​t​e​r​ ​d​e​l​e​t​i​o​n​s​.
+				 */
+				descrition: string
+			}
 		}
 		cursorExplosion: {
 			/**
@@ -229,6 +239,16 @@ export type TranslationFunctions = {
 			 * Show exclamation
 			 */
 			showExclamation: () => LocalizedString
+			precisionInput: {
+				/**
+				 * Precision input mode
+				 */
+				title: () => LocalizedString
+				/**
+				 * Only correct inputs will count towards the combo, ignoring any character deletions.
+				 */
+				descrition: () => LocalizedString
+			}
 		}
 		cursorExplosion: {
 			/**

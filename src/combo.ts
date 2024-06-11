@@ -1,11 +1,15 @@
 import sample from "lodash/sample";
 import random from "lodash/random";
+import { MarkdownFileInfo, MarkdownView, TAbstractFile, TFile } from "obsidian";
+import { isMarkdownFile } from "./utils";
 
 let count = 0;
 let timer: number | undefined;
 let comboEl: HTMLElement;
 let textEl: HTMLElement;
 let progressEl: HTMLElement;
+
+const lengthMap: Record<string, number> = {};
 
 const EXCLAMATIONS = [
   "Super!",
@@ -123,10 +127,30 @@ function active(setting: ISetting) {
   }, setting.combo.timeout * 1000) as unknown as number;
 }
 
-export function combo(el: HTMLElement, setting: ISetting) {
+export function combo(el: HTMLElement, setting: ISetting, info: MarkdownView) {
   if (!setting.combo.enable) {
     return;
   }
-  init(el);
-  active(setting);
+  const currentLength = info.editor.getValue().length;
+  const path = info.file?.path;
+  if (setting.combo.precisionInput) {
+    if (path && path in lengthMap && lengthMap[path] <= currentLength) {
+      init(el);
+      active(setting);
+    }
+  } else {
+    init(el);
+    active(setting);
+  }
+  if (path) {
+    lengthMap[path] = currentLength;
+  }
+}
+
+export async function comboInit(file: TFile) {
+  if (isMarkdownFile(file)) {
+    const path = file.path;
+    const markdown = await file.vault.cachedRead(file);
+    lengthMap[path] = markdown.length;
+  }
 }

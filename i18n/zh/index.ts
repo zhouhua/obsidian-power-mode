@@ -36,6 +36,10 @@ const zh = {
           "两次按键之间的时间间隔小于连击时间，连击数增加1；大于连击时间，连击数重置为0。单位：秒",
       },
       showExclamation: "显示鼓励",
+      precisionInput: {
+        title: "精准输入模式",
+        descrition: "只有正确的输入才会计入 combo，忽略删除字符的操作",
+      },
     },
     cursorExplosion: {
       enable: "光标爆炸",

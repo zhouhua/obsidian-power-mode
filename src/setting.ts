@@ -9,6 +9,7 @@ export const defaultSetting: ISetting = {
     enable: true,
     timeout: 10,
     showExclamation: true,
+    precisionInput: false,
   },
   explosion: {
     enable: true,

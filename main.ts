@@ -1,7 +1,7 @@
-import { App, Plugin, PluginSettingTab } from "obsidian";
+import { App, MarkdownView, Plugin, PluginSettingTab, TFile } from "obsidian";
 import { shakeScreen } from "./src/screen-shaker";
 import { defaultSetting } from "src/setting";
-import { combo } from "src/combo";
+import { combo, comboInit } from "src/combo";
 import { explosion } from "src/explosion";
 import list from "src/presets/explosion";
 import renderSetting from "src/components/setting";
@@ -14,16 +14,20 @@ export default class PowerModePlugin extends Plugin {
   async onload() {
     await this.loadSettings();
     this.registerEvent(
-      this.app.workspace.on("editor-change", (editor) => {
+      this.app.workspace.on("editor-change", (editor, info) => {
         // @ts-ignore
         const el: HTMLElement = editor.containerEl;
         el.style.transition = "transform 0.05s ease-in-out";
         shakeScreen(el, this.settings);
-        combo(el, this.settings);
+        combo(el, this.settings, info as MarkdownView);
         explosion(editor, this.settings);
       })
     );
-
+    this.registerEvent(
+      this.app.workspace.on("file-open", (file) => {
+        comboInit(file as TFile);
+      })
+    );
     this.addSettingTab(new PowerModeSetting(this.app, this));
   }
 
