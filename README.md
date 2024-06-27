@@ -43,3 +43,11 @@ Power Mode is not a new concept; it has been implemented numerous times in [vari
 ## Installation
 
 Search `power mode` in community plugins.
+
+## My Other Obsidian Plugins
+
+- [Export Image](https://github.com/zhouhua/obsidian-export-image)
+- [Markdown Media Card](https://github.com/zhouhua/obsidian-markdown-media-card)
+- [vConsole](https://github.com/zhouhua/obsidian-vconsole)
+- [Another Sticky Headings](https://github.com/zhouhua/obsidian-sticky-headings)
+- [PopKit](https://github.com/zhouhua/obsidian-popkit)
