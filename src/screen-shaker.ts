@@ -1,6 +1,6 @@
-import random from "lodash/random";
+import random from 'lodash/random';
 
-let shakeTimer: number | undefined;
+let shakeTimer: NodeJS.Timeout | undefined;
 
 let lastShakeX = 0;
 let lastShakeY = 0;
@@ -24,7 +24,8 @@ export function shakeScreen(el: HTMLElement, setting: ISetting) {
     moveBy(moveX - lastShakeX, moveY - lastShakeY);
     lastShakeX = moveX;
     lastShakeY = moveY;
-  } else {
+  }
+  else {
     el.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
   }
   shakeTimer = setTimeout(() => {
@@ -32,9 +33,10 @@ export function shakeScreen(el: HTMLElement, setting: ISetting) {
       moveBy(-lastShakeX, -lastShakeY);
       lastShakeX = 0;
       lastShakeY = 0;
-    } else {
-      el.style.transform = "unset";
+    }
+    else {
+      el.style.transform = 'unset';
     }
     shakeTimer = undefined;
-  }, setting.shakeScreen.recoverTime) as unknown as number;
+  }, setting.shakeScreen.recoverTime);
 }

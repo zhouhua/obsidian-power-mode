@@ -1,56 +1,56 @@
-import sample from "lodash/sample";
-import random from "lodash/random";
-import { MarkdownFileInfo, MarkdownView, TAbstractFile, TFile } from "obsidian";
-import { isMarkdownFile } from "./utils";
+import sample from 'lodash/sample';
+import random from 'lodash/random';
+import type { MarkdownView, TFile } from 'obsidian';
+import { isMarkdownFile } from './utils';
 
 let count = 0;
-let timer: number | undefined;
-let comboEl: HTMLElement;
+let timer: NodeJS.Timeout | undefined;
+let comboEl: HTMLElement | undefined;
 let textEl: HTMLElement;
 let progressEl: HTMLElement;
 
 const lengthMap: Record<string, number> = {};
 
 const EXCLAMATIONS = [
-  "Super!",
-  "Fantastic!",
-  "Great!",
-  "OMG",
-  "Whoah!",
-  ":O",
-  "Nice!",
-  "Splendid!",
-  "Grand!",
-  "Impressive!",
-  "Stupendous!",
-  "Extreme!",
-  "Awesome!",
+  'Super!',
+  'Fantastic!',
+  'Great!',
+  'OMG',
+  'Whoah!',
+  ':O',
+  'Nice!',
+  'Splendid!',
+  'Grand!',
+  'Impressive!',
+  'Stupendous!',
+  'Extreme!',
+  'Awesome!',
 ];
 
-function init(el: HTMLElement) {
+function init() {
   if (!comboEl) {
-    comboEl = el.parentElement!.createDiv({
-      cls: "power-mode-combo",
+    comboEl = document.body.createDiv({
+      cls: 'power-mode-combo',
     });
     textEl = comboEl.createDiv({
-      cls: "power-mode-combo-text",
+      cls: 'power-mode-combo-text',
     });
     progressEl = comboEl.createDiv({
-      cls: "power-mode-combo-progress",
+      cls: 'power-mode-combo-progress',
     });
   }
 }
-let flickerTimer: number;
+let flickerTimer: NodeJS.Timeout;
 function flickAnimate(el: HTMLElement) {
   el.animate(
     [
-      { opacity: 1, filter: "invert(0)" },
-      { opacity: 0.3, filter: "invert(0.6)" },
-      { opacity: 1, filter: "invert(0)" },
+      { opacity: 1, filter: 'invert(0)' },
+      { opacity: 0.3, filter: 'invert(0.6)' },
+      { opacity: 1, filter: 'invert(0)' },
     ],
     {
       duration: 30,
-    }
+    },
   );
 }
 function flicker() {
@@ -59,7 +59,7 @@ function flicker() {
     flickAnimate(textEl);
   }
 
-  flickerTimer = setTimeout(flicker, random(100, 800)) as unknown as number;
+  flickerTimer = setTimeout(flicker, random(100, 800));
 }
 function stopFlicker() {
   clearTimeout(flickerTimer);
@@ -72,13 +72,13 @@ function reset() {
   }
   stopFlicker();
   count = 0;
-  comboEl.style.display = "none";
+  comboEl!.style.display = 'none';
 }
 
 function exclaim(color: string) {
   const exclamation = sample(EXCLAMATIONS);
-  const exclamationEl = comboEl.createDiv({
-    cls: "power-mode-combo-exclamation",
+  const exclamationEl = comboEl!.createDiv({
+    cls: 'power-mode-combo-exclamation',
     text: exclamation,
     attr: {
       style: `color: ${color}`,
@@ -86,14 +86,16 @@ function exclaim(color: string) {
   });
   exclamationEl.animate(
     [
-      { transform: "translate3d(0,0,0)", opacity: 1 },
+      { transform: 'translate3d(0,0,0)', opacity: 1 },
       { transform: `translate3d(${random(-20, 20)}%, 200%, 0)`, opacity: 0 },
     ],
     {
       duration: 2000,
-    }
+    },
   );
-  setTimeout(() => exclamationEl.remove(), 2000);
+  setTimeout(() => {
+    exclamationEl.remove();
+  }, 2000);
 }
 
 function active(setting: ISetting) {
@@ -101,17 +103,17 @@ function active(setting: ISetting) {
   if (count === 1) {
     flicker();
   }
-  comboEl.style.display = "flex";
+  comboEl!.style.display = 'flex';
   const color = `hsl(${200 - count * 1.2}, 100%, 70%)`;
   textEl.style.textShadow = `0 0 15px ${color}, 0 1px ${color}, 1px 0 ${color}, 0 -1px ${color}, -1px 0 ${color}`;
   textEl.textContent = `${count}×`;
   progressEl.style.boxShadow = `0 0 15px ${color}`;
   progressEl.style.borderColor = color;
   progressEl.style.width = `${count * 10}%`;
-  progressEl.animate([{ width: "80px" }, { width: 0 }], {
+  progressEl.animate([{ width: '80px' }, { width: 0 }], {
     duration: setting.combo.timeout * 1000,
   });
-  textEl.animate([{ transform: "scale(1.5)" }, { transform: "scale(1)" }], {
+  textEl.animate([{ transform: 'scale(1.5)' }, { transform: 'scale(1)' }], {
     duration: 150,
   });
   if (setting.combo.showExclamation) {
@@ -124,10 +126,10 @@ function active(setting: ISetting) {
   }
   timer = setTimeout(() => {
     reset();
-  }, setting.combo.timeout * 1000) as unknown as number;
+  }, setting.combo.timeout * 1000);
 }
 
-export function combo(el: HTMLElement, setting: ISetting, info: MarkdownView) {
+export function combo(setting: ISetting, info: MarkdownView) {
   if (!setting.combo.enable) {
     return;
   }
@@ -135,11 +137,12 @@ export function combo(el: HTMLElement, setting: ISetting, info: MarkdownView) {
   const path = info.file?.path;
   if (setting.combo.precisionInput) {
     if (path && path in lengthMap && lengthMap[path] <= currentLength) {
-      init(el);
+      init();
       active(setting);
     }
-  } else {
-    init(el);
+  }
+  else {
+    init();
     active(setting);
   }
   if (path) {
@@ -149,7 +152,7 @@ export function combo(el: HTMLElement, setting: ISetting, info: MarkdownView) {
 
 export async function comboInit(file: TFile) {
   if (isMarkdownFile(file)) {
-    const path = file.path;
+    const { path } = file;
     const markdown = await file.vault.cachedRead(file);
     lengthMap[path] = markdown.length;
   }

@@ -1,7 +1,7 @@
-import { TAbstractFile, TFile } from "obsidian";
+import type { TFile } from 'obsidian';
 
 export function isUrl(src: string) {
-  return /^http/.test(src);
+  return src.startsWith('http');
 }
 
 export function preload(src: string) {
@@ -14,6 +14,6 @@ export function preload(src: string) {
   }
 }
 
-export function isMarkdownFile(file: TFile | TAbstractFile) {
-  return ["md", "markdown"].includes((file as TFile)?.extension ?? "");
+export function isMarkdownFile(file: TFile) {
+  return ['md', 'markdown'].includes(file.extension);
 }

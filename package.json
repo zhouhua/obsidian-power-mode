@@ -25,22 +25,29 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"@types/lodash": "^4.17.0",
-		"@types/node": "^20.12.3",
-		"@types/react": "^18.2.74",
-		"@types/react-dom": "^18.2.24",
-		"@typescript-eslint/eslint-plugin": "7.5.0",
-		"@typescript-eslint/parser": "7.5.0",
+		"@eslint/js": "^9.9.0",
+		"@stylistic/eslint-plugin": "^2.6.2",
+		"@types/eslint__js": "^8.42.3",
+		"@types/lodash": "^4.17.7",
+		"@types/node": "^22.3.0",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"@typescript-eslint/eslint-plugin": "8.1.0",
+		"@typescript-eslint/parser": "8.1.0",
 		"builtin-modules": "3.3.0",
-		"esbuild": "0.20.2",
-		"obsidian": "latest",
-		"tslib": "2.6.2",
-		"typescript": "5.4.3"
+		"esbuild": "0.23.0",
+		"eslint": "^9.9.0",
+		"obsidian": "^1.6.6",
+		"tslib": "2.6.3",
+		"typescript": "5.5.4",
+		"typescript-eslint": "^8.1.0"
 	},
 	"dependencies": {
+		"classnames": "^2.5.1",
+		"json-edit-react": "^1.15.5",
 		"lodash": "^4.17.21",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
 		"typesafe-i18n": "^5.26.2"
 	}
 }

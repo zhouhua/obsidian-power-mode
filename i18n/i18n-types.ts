@@ -135,6 +135,14 @@ type RootTranslation = {
 			 */
 			effect: string
 		}
+		/**
+		 * A​d​v​a​n​c​e​d​ ​e​f​f​e​c​t​s​ ​s​e​t​t​i​n​g​s
+		 */
+		useCustom: string
+		/**
+		 * R​e​s​e​t​ ​t​o​ ​p​r​e​s​e​t​ ​e​f​f​e​c​t
+		 */
+		resetToPreset: string
 	}
 }
 
@@ -260,6 +268,14 @@ export type TranslationFunctions = {
 			 */
 			effect: () => LocalizedString
 		}
+		/**
+		 * Advanced effects settings
+		 */
+		useCustom: () => LocalizedString
+		/**
+		 * Reset to preset effect
+		 */
+		resetToPreset: () => LocalizedString
 	}
 }
 

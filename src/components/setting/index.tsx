@@ -1,13 +1,13 @@
-import { createRoot } from "react-dom/client";
-import React from "react";
-import Panel from "./Panel";
-import { App } from "obsidian";
+import { createRoot } from 'react-dom/client';
+import React from 'react';
+import Panel from './Panel';
+import type { App } from 'obsidian';
 
 export default function renderSetting(
   el: HTMLElement,
   initialSetting: ISetting,
   app: App,
-  updateSetting: (data: ISetting) => void
+  updateSetting: (data: ISetting) => void,
 ) {
   const root = createRoot(el);
   root.render(
@@ -15,6 +15,6 @@ export default function renderSetting(
       initialSetting={initialSetting}
       app={app}
       updateSetting={updateSetting}
-    />
+    />,
   );
 }
