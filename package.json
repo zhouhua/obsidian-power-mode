@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-power-mode",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "Active Power Mode!!!!",
 	"main": "main.js",
 	"scripts": {
