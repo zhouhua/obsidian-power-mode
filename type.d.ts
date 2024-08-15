@@ -29,7 +29,7 @@ declare interface ISetting {
   } & IExplosion;
   explosionPreset: number;
   useCustom: boolean;
-  customEffect: Partial<IExplosion>;
+  customEffect?: Partial<IExplosion>;
 }
 
 declare type ConditionType<T> =

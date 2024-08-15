@@ -81,6 +81,7 @@ const Custom: FC<{
   const resetPreset = () => {
     update({
       ...formData,
+      useCustom: true,
       customEffect: {
         ...formData.explosion,
       },
@@ -95,6 +96,13 @@ const Custom: FC<{
             label: L.settings.useCustom(),
             path: 'useCustom',
             type: 'boolean',
+            beforeChange: (newValue: boolean, data) => {
+              if (newValue && !data.customEffect) {
+                setTimeout(() => {
+                  resetPreset();
+                }, 100);
+              }
+            },
           },
         ]}
         formData={formData}

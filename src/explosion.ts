@@ -20,7 +20,7 @@ export function explosion(editor: Editor, setting: ISetting) {
     offset = 0,
     customStyle,
     gifMode = 'continue',
-  } = setting.useCustom ? setting.customEffect : setting.explosion;
+  } = setting.useCustom ? (setting.customEffect || {}) : setting.explosion;
   if (!enable || count % frequency !== 0 || imageList.length === 0) {
     return;
   }

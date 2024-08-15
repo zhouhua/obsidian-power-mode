@@ -25,5 +25,5 @@ export const defaultSetting: ISetting = {
   },
   explosionPreset: 0,
   useCustom: false,
-  customEffect: {},
+  customEffect: undefined,
 };
