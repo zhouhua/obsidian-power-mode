@@ -3,10 +3,10 @@ import type { FC } from 'react';
 import React from 'react';
 
 const FileList: FC<{
-  list: string[];
+  list?: string[];
   update: (list: string[]) => void;
   viewType: 'preview' | 'list';
-}> = ({ list, update, viewType }) => {
+}> = ({ list = [], update, viewType }) => {
   return (
     <div
       className={classNames({
