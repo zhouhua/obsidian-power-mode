@@ -143,6 +143,26 @@ type RootTranslation = {
 		 * R​e​s​e​t​ ​t​o​ ​p​r​e​s​e​t​ ​e​f​f​e​c​t
 		 */
 		resetToPreset: string
+		/**
+		 * U​p​l​o​a​d​ ​a​n​i​m​a​t​i​o​n
+		 */
+		upload: string
+		/**
+		 * E​n​t​e​r​ ​a​n​i​m​a​t​i​o​n​ ​u​r​l
+		 */
+		enterUrl: string
+		/**
+		 * C​o​n​f​i​r​m
+		 */
+		confirm: string
+		/**
+		 * C​a​n​c​e​l
+		 */
+		cancel: string
+		/**
+		 * D​r​a​g​g​i​n​g​ ​a​n​i​m​a​t​i​o​n​s​ ​c​a​n​ ​a​d​j​u​s​t​ ​t​h​e​ ​o​r​d​e​r
+		 */
+		dragInfo: string
 	}
 }
 
@@ -276,6 +296,26 @@ export type TranslationFunctions = {
 		 * Reset to preset effect
 		 */
 		resetToPreset: () => LocalizedString
+		/**
+		 * Upload animation
+		 */
+		upload: () => LocalizedString
+		/**
+		 * Enter animation url
+		 */
+		enterUrl: () => LocalizedString
+		/**
+		 * Confirm
+		 */
+		confirm: () => LocalizedString
+		/**
+		 * Cancel
+		 */
+		cancel: () => LocalizedString
+		/**
+		 * Dragging animations can adjust the order
+		 */
+		dragInfo: () => LocalizedString
 	}
 }
 

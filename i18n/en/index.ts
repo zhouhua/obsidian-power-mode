@@ -50,6 +50,11 @@ const en = {
     },
     useCustom: 'Advanced effects settings',
     resetToPreset: 'Reset to preset effect',
+    upload: 'Upload animation',
+    enterUrl: 'Enter animation url',
+    confirm: 'Confirm',
+    cancel: 'Cancel',
+    dragInfo: 'Dragging animations can adjust the order',
   },
 } satisfies BaseTranslation;
 

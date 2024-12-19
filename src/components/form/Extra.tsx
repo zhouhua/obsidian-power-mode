@@ -20,14 +20,11 @@ const Extra: FC<{
     set(newSetting, fieldSchema.path, transValue);
     update(newSetting);
   };
-  switch (fieldSchema.type) {
-    case 'imageList': {
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-      return <FileList list={value as string[]} update={onChange} viewType="preview" />;
-    }
-    default:
-      return null;
+  if (fieldSchema.type === 'imageList') {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return <FileList list={value as string[]} update={onChange} viewType="preview" />;
   }
+  return null;
 };
 
 export default Extra;

@@ -17,3 +17,7 @@ export function preload(src: string) {
 export function isMarkdownFile(file: TFile) {
   return ['md', 'markdown'].includes(file.extension);
 }
+
+export function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}

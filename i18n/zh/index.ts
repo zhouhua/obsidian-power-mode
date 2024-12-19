@@ -47,6 +47,11 @@ const zh = {
     },
     useCustom: '高级效果设置',
     resetToPreset: '重置为预设效果',
+    upload: '上传动画',
+    enterUrl: '输入动画 url',
+    confirm: '确定',
+    cancel: '取消',
+    dragInfo: '拖动动画可以调整顺序',
   },
 } satisfies Translation;
 

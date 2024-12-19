@@ -1,8 +1,10 @@
-import React, { useState, type FC } from 'react';
+import React, { useRef, useState, type FC } from 'react';
 import get from 'lodash/get';
 import set from 'lodash/set';
 import { JsonEditor } from 'json-edit-react';
-import { Notice, type App } from 'obsidian';
+import { Modal, Notice, type App } from 'obsidian';
+import L from 'src/L';
+import { delay } from 'src/utils';
 
 const Control: FC<{
   fieldSchema: FieldSchema<ISetting>;
@@ -11,10 +13,12 @@ const Control: FC<{
   app: App;
 }> = ({ fieldSchema, setting, update, app }) => {
   const [url, setUrl] = useState('');
+  const inputReference = useRef<HTMLInputElement>(null);
   let value: unknown = get(setting, fieldSchema.path);
   if (fieldSchema.afterChange) {
     value = fieldSchema.afterChange(value, setting);
   }
+
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   const [text, setText] = useState<string>(fieldSchema.type === 'text' ? value as string : '');
 
@@ -40,6 +44,77 @@ const Control: FC<{
       new Notice(`Invalid url: ${url}`);
     }
   };
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result;
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        const currentList = get(setting, fieldSchema.path) as string[];
+        onChange([...currentList, base64String]);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const openUrlModal = () => {
+    const modal = new Modal(app);
+    modal.titleEl.setText(L.settings.enterUrl());
+
+    const inputContainer = modal.contentEl.createDiv({
+      attr: {
+        style: 'margin: 1em 0;',
+      },
+    });
+    const input = inputContainer.createEl('input', {
+      attr: {
+        type: 'text',
+        placeholder: L.settings.enterUrl(),
+        style: 'width: 100%',
+      },
+    });
+
+    input.onkeydown = async e => {
+      if (e.key === 'Enter') {
+        onChange(input.value);
+        await delay(0);
+        add();
+        modal.close();
+      }
+      else if (e.key === 'Escape') {
+        modal.close();
+      }
+    };
+
+    const buttonDiv = modal.contentEl.createDiv({
+      cls: 'modal-button-container',
+      attr: {
+        style: 'display: flex; justify-content: flex-end; gap: 8px; margin-top: 1em;',
+      },
+    });
+
+    const confirmButton = buttonDiv.createEl('button', {
+      text: L.settings.confirm(),
+      cls: 'mod-cta',
+    });
+    confirmButton.onclick = async () => {
+      onChange(input.value);
+      await delay(0);
+      add();
+      modal.close();
+    };
+
+    buttonDiv.createEl('button', { text: L.settings.cancel() }).onclick = () => {
+      modal.close();
+    };
+
+    modal.open();
+    setTimeout(() => {
+      input.focus();
+    }, 0);
+  };
+
   switch (fieldSchema.type) {
     case 'number': {
       return (
@@ -115,12 +190,16 @@ const Control: FC<{
     case 'imageList': {
       return (
         <>
-          <input
-            type="text"
-            value={url}
-            onChange={e => { setUrl(e.target.value); }}
-          />
-          <button onClick={add}>Add</button>
+          <button onClick={() => inputReference.current?.click()}>
+            {L.settings.upload()}
+            <input
+              ref={inputReference}
+              style={{ display: 'none' }}
+              type="file"
+              onChange={handleFileChange}
+            />
+          </button>
+          <button onClick={openUrlModal}>{L.settings.enterUrl()}</button>
         </>
       );
     }
